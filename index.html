@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10161A">
+<meta name="description" content="NextGen Spaces — Real estate consultant for plots, flats and rentals across Mohali and the Tricity, open 24 hours, 4.9★ on Google.">
+<title>NextGen Spaces — Real Estate Consultant, Mohali &amp; Tricity</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================
+   TOKENS
+========================= */
+
+:root{
+    --ink:#10161A;
+    --ink-soft:#1A2329;
+    --ink-line:rgba(255,255,255,0.09);
+    --paper:#EEE8D9;
+    --paper-deep:#E6DFCC;
+    --card:#FFFFFF;
+    --gold:#D2A24C;
+    --gold-deep:#B4832E;
+    --blue:#71A8C4;
+    --text-on-ink:#EEE9DC;
+    --text-on-ink-muted:rgba(238,233,220,0.62);
+    --text-on-paper:#161D1B;
+    --text-on-paper-muted:#5C655C;
+    --r-sm:10px;
+    --r-md:16px;
+    --r-lg:26px;
+    --wrap:1240px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+    background:var(--paper);
+    color:var(--text-on-paper);
+    font-family:"IBM Plex Sans", -apple-system, "Segoe UI", Arial, sans-serif;
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+h1,h2,h3{
+    font-family:"Space Grotesk", "IBM Plex Sans", sans-serif;
+    font-weight:600;
+    letter-spacing:-0.02em;
+}
+.wrap{width:min(var(--wrap), calc(100% - 48px));margin:0 auto;}
+button{font-family:inherit;}
+
+::selection{background:var(--gold);color:#161D1B;}
+
+@media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important;transition-duration:0.001ms !important;scroll-behavior:auto !important;}
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 22px;
+    border-radius:var(--r-sm);
+    font-size:14px;
+    font-weight:500;
+    transition:transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
+    white-space:nowrap;
+}
+.btn-gold{
+    background:var(--gold);
+    color:#171009;
+}
+.btn-gold:hover{background:var(--gold-deep);transform:translateY(-2px);}
+.btn-outline-ink{
+    border:1px solid rgba(238,233,220,0.28);
+    color:var(--text-on-ink);
+}
+.btn-outline-ink:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+.btn-outline-dark{
+    border:1px solid rgba(22,29,26,0.18);
+    color:var(--text-on-paper);
+}
+.btn-outline-dark:hover{border-color:var(--text-on-paper);transform:translateY(-2px);}
+.btn-dark{
+    background:var(--ink);
+    color:var(--text-on-ink);
+}
+.btn-dark:hover{background:var(--ink-soft);transform:translateY(-2px);}
+
+/* =========================
+   NAV
+========================= */
+
+.site-nav{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:200;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px 0;
+    transition:padding .35s ease, background .35s ease, box-shadow .35s ease, border-color .35s ease;
+    border-bottom:1px solid transparent;
+}
+.site-nav .wrap{display:flex;align-items:center;justify-content:space-between;width:min(var(--wrap), calc(100% - 48px));margin:0 auto;}
+.site-nav.scrolled{
+    padding:14px 0;
+    background:rgba(16,22,26,0.86);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom-color:var(--ink-line);
+}
+.nav-brand{display:flex;flex-direction:column;color:var(--text-on-ink);}
+.nav-brand strong{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:19px;
+    font-weight:600;
+    letter-spacing:-0.02em;
+}
+.nav-brand span{
+    margin-top:2px;
+    font-size:11px;
+    color:var(--text-on-ink-muted);
+}
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+.nav-links a{
+    position:relative;
+    font-size:14px;
+    color:var(--text-on-ink-muted);
+    padding:4px 0;
+    transition:color .2s ease;
+}
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;bottom:-2px;
+    width:0;height:1px;
+    background:var(--gold);
+    transition:width .3s ease;
+}
+.nav-links a:hover{color:var(--text-on-ink);}
+.nav-links a:hover::after{width:100%;}
+.nav-right{display:flex;align-items:center;gap:14px;}
+.nav-call{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:11px 18px;
+    border-radius:var(--r-sm);
+    background:var(--gold);
+    color:#171009;
+    font-size:13px;
+    font-weight:500;
+    transition:background .25s ease, transform .25s ease;
+}
+.nav-call:hover{background:var(--gold-deep);transform:translateY(-2px);}
+
+.menu-toggle{
+    display:none;
+    width:44px;height:44px;
+    align-items:center;justify-content:center;
+    flex-direction:column;
+    gap:5px;
+    border:1px solid rgba(238,233,220,0.25);
+    border-radius:50%;
+    background:transparent;
+    cursor:pointer;
+}
+.menu-toggle span{width:16px;height:1.5px;background:var(--text-on-ink);}
+
+@media (max-width:900px){
+    .nav-links,.nav-call{display:none;}
+    .menu-toggle{display:flex;}
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu{
+    position:fixed;
+    inset:0;
+    z-index:300;
+    background:var(--ink);
+    padding:26px 24px;
+    display:flex;
+    flex-direction:column;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-14px);
+    transition:opacity .3s ease, transform .3s ease, visibility .3s ease;
+}
+.mobile-menu.open{opacity:1;visibility:visible;transform:translateY(0);}
+.mobile-menu-top{display:flex;align-items:center;justify-content:space-between;}
+.mobile-menu-top span{color:var(--text-on-ink-muted);font-size:12px;letter-spacing:.06em;}
+.mobile-menu-close{
+    width:42px;height:42px;
+    border-radius:50%;
+    border:1px solid rgba(238,233,220,0.25);
+    background:transparent;
+    color:var(--text-on-ink);
+    font-size:22px;
+    font-weight:300;
+    cursor:pointer;
+}
+.mobile-menu nav{margin-top:60px;display:flex;flex-direction:column;gap:22px;}
+.mobile-menu nav a{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:30px;
+    color:var(--text-on-ink);
+    letter-spacing:-0.02em;
+}
+.mobile-menu-cta{margin-top:auto;display:flex;flex-direction:column;gap:10px;}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:relative;
+    background:var(--ink);
+    color:var(--text-on-ink);
+    padding:150px 0 0;
+    overflow:hidden;
+}
+.hero .wrap{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:40px;
+    align-items:center;
+    padding-bottom:70px;
+}
+.hero-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 14px;
+    border:1px solid rgba(238,233,220,0.22);
+    border-radius:100px;
+    font-size:12px;
+    color:var(--text-on-ink-muted);
+    margin-bottom:26px;
+}
+.hero-eyebrow b{color:var(--gold);font-weight:600;}
+.hero h1{
+    font-size:clamp(38px,4.6vw,60px);
+    line-height:1.04;
+    max-width:560px;
+}
+.hero h1 em{
+    font-style:normal;
+    color:var(--gold);
+}
+.hero p.lead{
+    margin-top:22px;
+    max-width:460px;
+    font-size:16px;
+    line-height:1.7;
+    color:var(--text-on-ink-muted);
+}
+.hero-actions{
+    margin-top:34px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+.hero-chips{
+    margin-top:40px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+}
+.hero-chip{
+    display:flex;
+    flex-direction:column;
+}
+.hero-chip strong{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:22px;
+    color:var(--text-on-ink);
+}
+.hero-chip span{
+    margin-top:3px;
+    font-size:11.5px;
+    color:var(--text-on-ink-muted);
+}
+
+/* HERO MAP */
+
+.hero-map-wrap{
+    position:relative;
+    border-radius:var(--r-lg);
+    overflow:hidden;
+    border:1px solid var(--ink-line);
+    background:#0C1114;
+    aspect-ratio:1/1;
+}
+.hero-map-wrap svg{width:100%;height:100%;display:block;}
+#grid-layer{transition:transform .2s ease-out;}
+#pin-layer{transition:transform .15s ease-out;}
+.grid-line{stroke:rgba(238,233,220,0.08);stroke-width:1;}
+.grid-cell-active{
+    fill:rgba(210,162,76,0.12);
+    stroke:var(--gold);
+    stroke-width:1.4;
+}
+.landmark-dot{fill:var(--blue);opacity:.55;}
+.landmark-label{
+    font-family:"IBM Plex Sans",sans-serif;
+    font-size:8.5px;
+    fill:rgba(238,233,220,0.45);
+}
+.coord-label{
+    font-family:"IBM Plex Sans",sans-serif;
+    font-size:10px;
+    fill:rgba(238,233,220,0.4);
+}
+.pin-drop{
+    animation:pinDrop .9s cubic-bezier(.3,1.4,.4,1) both;
+    animation-delay:.3s;
+    transform-origin:260px 480px;
+}
+@keyframes pinDrop{
+    0%{transform:translateY(-140px);opacity:0;}
+    60%{opacity:1;}
+    100%{transform:translateY(0);opacity:1;}
+}
+.scan-line{
+    position:absolute;
+    left:0;right:0;
+    height:120px;
+    background:linear-gradient(180deg, rgba(113,168,196,0) 0%, rgba(113,168,196,0.10) 50%, rgba(113,168,196,0) 100%);
+    animation:scanSweep 7s linear infinite;
+    pointer-events:none;
+}
+@keyframes scanSweep{
+    0%{top:-120px;}
+    100%{top:100%;}
+}
+.hero-map-caption{
+    position:absolute;
+    left:18px;bottom:16px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 13px;
+    background:rgba(16,22,26,0.72);
+    backdrop-filter:blur(8px);
+    border-radius:100px;
+    font-size:11px;
+    color:var(--text-on-ink-muted);
+}
+.hero-map-caption .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);}
+
+@media (max-width:900px){
+    .hero{padding-top:120px;}
+    .hero .wrap{grid-template-columns:1fr;gap:44px;padding-bottom:50px;}
+    .hero-map-wrap{max-width:420px;margin:0 auto;}
+}
+@media (max-width:560px){
+    .hero .wrap{width:calc(100% - 32px);}
+    .hero h1{font-size:clamp(34px,10vw,44px);}
+    .hero-chips{gap:18px;}
+}
+
+/* =========================
+   MARQUEE
+========================= */
+
+.marquee{
+    background:var(--paper-deep);
+    border-top:1px solid rgba(22,29,26,0.08);
+    border-bottom:1px solid rgba(22,29,26,0.08);
+    overflow:hidden;
+    padding:16px 0;
+}
+.marquee-track{
+    display:flex;
+    width:max-content;
+    animation:marqueeScroll 32s linear infinite;
+}
+.marquee-track span{
+    display:flex;
+    align-items:center;
+    font-family:"Space Grotesk",sans-serif;
+    font-size:14px;
+    font-weight:500;
+    color:var(--text-on-paper-muted);
+    padding:0 26px;
+    white-space:nowrap;
+}
+.marquee-track span::after{
+    content:"";
+    display:inline-block;
+    width:5px;height:5px;
+    margin-left:26px;
+    background:var(--gold);
+    transform:rotate(45deg);
+}
+@keyframes marqueeScroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+}
+
+/* =========================
+   SECTION SHELL
+========================= */
+
+section{padding:88px 0;}
+.section-head{
+    max-width:640px;
+    margin-bottom:48px;
+}
+.kicker{
+    display:inline-block;
+    font-size:12.5px;
+    font-weight:500;
+    color:var(--gold-deep);
+    margin-bottom:14px;
+}
+.section-head h2{
+    font-size:clamp(30px,3.6vw,44px);
+    line-height:1.08;
+}
+.section-head p{
+    margin-top:16px;
+    font-size:15.5px;
+    color:var(--text-on-paper-muted);
+    line-height:1.7;
+    max-width:520px;
+}
+.reveal{
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1);
+}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+@media (max-width:600px){
+    section{padding:60px 0;}
+    .section-head{margin-bottom:34px;}
+}
+
+/* =========================
+   STATS BAND
+========================= */
+
+.stats-band{
+    background:var(--ink);
+    color:var(--text-on-ink);
+    padding:60px 0;
+}
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+.stat-item{border-left:1px solid var(--ink-line);padding-left:22px;}
+.stat-item strong{
+    display:block;
+    font-family:"Space Grotesk",sans-serif;
+    font-size:38px;
+    font-weight:600;
+    font-variant-numeric:tabular-nums;
+}
+.stat-item span{
+    display:block;
+    margin-top:6px;
+    font-size:12.5px;
+    color:var(--text-on-ink-muted);
+}
+@media (max-width:800px){
+    .stats-grid{grid-template-columns:repeat(2,1fr);row-gap:34px;}
+}
+
+/* =========================
+   SERVICES
+========================= */
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+.service-card{
+    background:var(--card);
+    border-radius:var(--r-md);
+    padding:28px 24px;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
+}
+.service-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 44px rgba(22,29,26,0.10);
+}
+.service-icon{
+    width:44px;height:44px;
+    border-radius:12px;
+    background:rgba(210,162,76,0.14);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:22px;
+    color:var(--gold-deep);
+}
+.service-card h3{font-size:18px;margin-bottom:10px;}
+.service-card p{font-size:13.5px;color:var(--text-on-paper-muted);line-height:1.65;}
+
+@media (max-width:900px){
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:560px){
+    .services-grid{grid-template-columns:1fr;}
+}
+
+/* =========================
+   AREAS WE COVER
+========================= */
+
+.areas-section{background:var(--ink);color:var(--text-on-ink);}
+.areas-layout{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+.areas-section .section-head p{color:var(--text-on-ink-muted);}
+.areas-section .kicker{color:var(--gold);}
+.area-chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+.area-chip{
+    padding:11px 17px;
+    border-radius:var(--r-sm);
+    border:1px solid rgba(238,233,220,0.2);
+    font-size:13.5px;
+    color:var(--text-on-ink-muted);
+    cursor:pointer;
+    transition:border-color .25s ease, color .25s ease, background .25s ease;
+}
+.area-chip:hover,
+.area-chip.active{
+    border-color:var(--gold);
+    color:var(--text-on-ink);
+    background:rgba(210,162,76,0.10);
+}
+.areas-map{
+    border-radius:var(--r-lg);
+    border:1px solid var(--ink-line);
+    background:#0C1114;
+    aspect-ratio:1/1;
+    overflow:hidden;
+}
+.areas-map svg{width:100%;height:100%;}
+.area-node{
+    fill:rgba(113,168,196,0.5);
+    transition:r .3s ease, fill .3s ease;
+}
+.area-node.active{fill:var(--gold);}
+.area-node-label{
+    font-family:"IBM Plex Sans",sans-serif;
+    font-size:11px;
+    fill:rgba(238,233,220,0.45);
+    transition:fill .3s ease, font-weight .3s ease;
+}
+.area-node-label.active{fill:var(--text-on-ink);font-weight:500;}
+
+@media (max-width:900px){
+    .areas-layout{grid-template-columns:1fr;gap:36px;}
+    .areas-map{max-width:380px;margin:0 auto;}
+}
+
+/* =========================
+   LISTINGS
+========================= */
+
+.listings-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-auto-rows:260px;
+    gap:16px;
+}
+.listing-card{
+    position:relative;
+    border-radius:var(--r-md);
+    overflow:hidden;
+    background:#ddd;
+}
+.listing-card.feature{
+    grid-column:span 2;
+    grid-row:span 2;
+}
+.listing-card img{
+    width:100%;height:100%;
+    object-fit:cover;
+    transition:transform .6s cubic-bezier(.2,.8,.2,1);
+}
+.listing-card:hover img{transform:scale(1.06);}
+.listing-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(16,22,26,0) 40%, rgba(16,22,26,0.82) 100%);
+}
+.listing-tag{
+    position:absolute;
+    top:16px;left:16px;
+    padding:7px 12px;
+    background:rgba(238,233,220,0.92);
+    color:#161D1B;
+    border-radius:100px;
+    font-size:10.5px;
+    font-weight:500;
+}
+.listing-info{
+    position:absolute;
+    left:20px;right:20px;bottom:18px;
+    color:var(--text-on-ink);
+}
+.listing-info h3{font-size:19px;margin-bottom:4px;}
+.listing-info p{font-size:12.5px;color:var(--text-on-ink-muted);}
+.listing-price{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:12px;
+}
+.listing-price strong{font-size:16px;font-family:"Space Grotesk",sans-serif;}
+.listing-price a{
+    font-size:12px;
+    color:var(--gold);
+    font-weight:500;
+}
+
+@media (max-width:900px){
+    .listings-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:220px;}
+    .listing-card.feature{grid-column:span 2;grid-row:span 1;}
+}
+@media (max-width:560px){
+    .listings-grid{grid-template-columns:1fr;grid-auto-rows:260px;}
+    .listing-card.feature{grid-column:span 1;}
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-layout{
+    display:grid;
+    grid-template-columns:0.85fr 1fr;
+    gap:64px;
+    align-items:center;
+}
+.about-photo{
+    position:relative;
+    border-radius:var(--r-lg);
+    overflow:hidden;
+    height:480px;
+}
+.about-photo img{width:100%;height:100%;object-fit:cover;}
+.about-badge{
+    position:absolute;
+    left:18px;bottom:18px;
+    background:var(--card);
+    border-radius:var(--r-md);
+    padding:16px 18px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.about-badge strong{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:22px;
+}
+.about-badge span{font-size:11px;color:var(--text-on-paper-muted);display:block;}
+.about-points{
+    margin-top:28px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+.about-point{
+    display:flex;
+    gap:16px;
+    padding-top:18px;
+    border-top:1px solid rgba(22,29,26,0.1);
+}
+.about-point:first-child{border-top:none;padding-top:0;}
+.about-point-num{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:13px;
+    color:var(--gold-deep);
+    min-width:26px;
+}
+.about-point h4{font-size:15.5px;margin-bottom:4px;}
+.about-point p{font-size:13.5px;color:var(--text-on-paper-muted);line-height:1.6;}
+
+@media (max-width:900px){
+    .about-layout{grid-template-columns:1fr;gap:36px;}
+    .about-photo{height:360px;}
+}
+
+/* =========================
+   REVIEWS
+========================= */
+
+.reviews-section{background:var(--paper-deep);}
+.reviews-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:40px;
+    margin-bottom:44px;
+}
+.rating-card{
+    background:var(--card);
+    border-radius:var(--r-md);
+    padding:20px 24px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    min-width:220px;
+}
+.rating-card strong{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:36px;
+    font-variant-numeric:tabular-nums;
+}
+.rating-stars{color:var(--gold-deep);font-size:13px;letter-spacing:2px;}
+.rating-card p{font-size:11px;color:var(--text-on-paper-muted);margin-top:3px;}
+.rating-card p span{font-variant-numeric:tabular-nums;}
+
+.reviews-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+.review-card{
+    background:var(--card);
+    border-radius:var(--r-md);
+    padding:26px;
+    display:flex;
+    flex-direction:column;
+    min-height:220px;
+}
+.review-stars{color:var(--gold-deep);font-size:13px;letter-spacing:2px;}
+.review-text{
+    margin-top:20px;
+    font-size:14.5px;
+    line-height:1.7;
+    color:var(--text-on-paper);
+}
+.review-author{
+    margin-top:auto;
+    padding-top:20px;
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+.review-avatar{
+    width:32px;height:32px;
+    border-radius:50%;
+    background:var(--ink);
+    color:var(--text-on-ink);
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:600;
+}
+.review-author strong{display:block;font-size:12.5px;}
+.review-author span{font-size:10.5px;color:var(--text-on-paper-muted);}
+
+@media (max-width:900px){
+    .reviews-top{flex-direction:column;align-items:flex-start;}
+    .reviews-grid{grid-template-columns:1fr;}
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-section{
+    background:var(--ink);
+    color:var(--text-on-ink);
+}
+.contact-layout{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+.contact-section .kicker{color:var(--gold);}
+.contact-list{
+    margin-top:28px;
+    display:flex;
+    flex-direction:column;
+    gap:0;
+}
+.contact-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 0;
+    border-top:1px solid var(--ink-line);
+    font-size:14.5px;
+}
+.contact-row:last-child{border-bottom:1px solid var(--ink-line);}
+.contact-row span:first-child{color:var(--text-on-ink-muted);}
+.contact-row a,
+.contact-row strong{font-weight:500;}
+.contact-actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px;}
+.contact-map{
+    border-radius:var(--r-lg);
+    overflow:hidden;
+    height:420px;
+    border:1px solid var(--ink-line);
+}
+.contact-map iframe{width:100%;height:100%;border:0;filter:grayscale(0.15) contrast(1.02);}
+
+@media (max-width:900px){
+    .contact-layout{grid-template-columns:1fr;gap:36px;}
+    .contact-map{height:280px;}
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.site-footer{
+    background:#0C1114;
+    color:var(--text-on-ink);
+    padding:60px 0 26px;
+}
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:44px;
+}
+.footer-brand strong{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:22px;
+}
+.footer-brand p{
+    margin-top:14px;
+    font-size:13px;
+    color:var(--text-on-ink-muted);
+    line-height:1.7;
+    max-width:280px;
+}
+.footer-col{display:flex;flex-direction:column;gap:11px;}
+.footer-label{
+    font-size:10.5px;
+    letter-spacing:.08em;
+    color:rgba(238,233,220,0.4);
+    margin-bottom:6px;
+}
+.footer-col a{
+    font-size:13.5px;
+    color:var(--text-on-ink-muted);
+    transition:color .2s ease;
+}
+.footer-col a:hover{color:var(--text-on-ink);}
+.footer-bottom{
+    margin-top:50px;
+    padding-top:20px;
+    border-top:1px solid var(--ink-line);
+    display:flex;
+    justify-content:space-between;
+    font-size:11.5px;
+    color:rgba(238,233,220,0.4);
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+@media (max-width:800px){
+    .footer-grid{grid-template-columns:1fr 1fr;gap:32px 24px;}
+    .footer-brand{grid-column:1/-1;}
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" id="site-nav">
+    <div class="wrap">
+        <a href="#" class="nav-brand">
+            <strong>NextGen Spaces DEMO WEBSITE</strong>
+            <span>Real Estate Consultant · Mohali</span>
+        </a>
+
+        <div class="nav-links" id="nav-links">
+            <a href="#services">Services</a>
+            <a href="#listings">Listings</a>
+            <a href="#areas">Areas</a>
+            <a href="#about">About</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="nav-right">
+            <a href="tel:+917090044000" class="nav-call">Call Now</a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<main>
+
+    <section class="hero" id="hero">
+        <div class="wrap">
+            <div>
+                <p class="hero-eyebrow">Open 24 hours <b>· 4.9★ on Google</b></p>
+                <h1>Property in the Tricity,<br>plotted <em>right</em>.</h1>
+                <p class="lead">
+                    NextGen Spaces helps you buy, sell and rent plots, flats
+                    and homes across Mohali, Chandigarh and Panchkula —
+                    with honest advice and full documentation support.
+                    DEMO WEBSITE BY KAMRAN AKMAL
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#listings" class="btn btn-gold">View plots &amp; flats</a>
+                    <a href="tel:+917090044000" class="btn btn-outline-ink">Call 070900 44000</a>
+                </div>
+
+                <div class="hero-chips">
+                    <div class="hero-chip"><strong>640+</strong><span>Five-star reviews</span></div>
+                    <div class="hero-chip"><strong>34</strong><span>"Property dealer" mentions</span></div>
+                    <div class="hero-chip"><strong>24 hrs</strong><span>Always reachable</span></div>
+                </div>
+            </div>
+
+            <div class="hero-map-wrap" id="hero-map-wrap">
+                <svg viewBox="0 0 520 520" id="hero-map" aria-hidden="true">
+                    <defs>
+                        <pattern id="grid" width="52" height="52" patternUnits="userSpaceOnUse">
+                            <path d="M 52 0 L 0 0 0 52" class="grid-line" fill="none"/>
+                        </pattern>
+                    </defs>
+
+                    <g id="grid-layer">
+                        <rect width="520" height="520" fill="url(#grid)"/>
+                        <circle class="landmark-dot" cx="130" cy="120" r="4"/>
+                        <text class="landmark-label" x="140" y="124">Cricket Stadium</text>
+                        <circle class="landmark-dot" cx="410" cy="90" r="4"/>
+                        <text class="landmark-label" x="330" y="84">Radisson RED</text>
+                        <circle class="landmark-dot" cx="90" cy="360" r="4"/>
+                        <text class="landmark-label" x="100" y="364">Wellness Club</text>
+                        <circle class="landmark-dot" cx="410" cy="400" r="4"/>
+                        <text class="landmark-label" x="330" y="418">Sector 70</text>
+                        <text class="coord-label" x="18" y="500">30.70°N&#160; 76.72°E</text>
+                    </g>
+
+                    <g id="pin-layer">
+                        <rect class="grid-cell-active" x="234" y="234" width="52" height="52" rx="3"/>
+                        <g class="pin-drop">
+                            <path d="M260 220 C280 220 296 236 296 256 C296 282 260 320 260 320 C260 320 224 282 224 256 C224 236 240 220 260 220 Z" fill="#D2A24C"/>
+                            <circle cx="260" cy="256" r="10" fill="#10161A"/>
+                        </g>
+                    </g>
+                </svg>
+                <div class="scan-line"></div>
+                <div class="hero-map-caption"><span class="dot"></span> Phase 9, Sahibzada Ajit Singh Nagar</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>Plot Sale</span><span>Homeland Flats</span><span>Falcon View</span><span>Property Dealer</span><span>Honest Consultant</span><span>NextGen Spaces</span>
+            <span>Plot Sale</span><span>Homeland Flats</span><span>Falcon View</span><span>Property Dealer</span><span>Honest Consultant</span><span>NextGen Spaces</span>
+        </div>
+    </div>
+
+    <div class="stats-band">
+        <div class="wrap stats-grid">
+            <div class="stat-item"><strong data-target="4.9" data-decimals="1">0.0</strong><span>Google rating</span></div>
+            <div class="stat-item"><strong data-target="640" data-decimals="0">0</strong><span>Client reviews</span></div>
+            <div class="stat-item"><strong data-target="24" data-decimals="0" data-suffix="/7">0</strong><span>Hours available</span></div>
+            <div class="stat-item"><strong data-target="3" data-decimals="0" data-suffix=" cities">0</strong><span>Mohali · Chandigarh · Panchkula</span></div>
+        </div>
+    </div>
+
+    <section id="services">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <p class="kicker">What I do</p>
+                <h2>Straightforward help, at every stage.</h2>
+                <p>From your first site visit to the final registry, NextGen
+                    Spaces handles the details so buying or renting stays simple.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12 L12 4 L21 12 M6 10 V20 H18 V10" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>Plot sale</h3>
+                    <p>Verified residential and corner plots across Mohali's numbered sectors and phases.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M8 8h2M14 8h2M8 12h2M14 12h2M8 16h2M14 16h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3>Flats &amp; apartments</h3>
+                    <p>Ready-to-move and under-construction flats, including Homeland and Falcon View projects.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 21 V9 L12 3 L20 9 V21 H4 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10 21 V14 H14 V21" stroke="currentColor" stroke-width="1.6"/></svg>
+                    </div>
+                    <h3>Rentals</h3>
+                    <p>Homes and offices for rent across the Tricity, matched to your budget and timeline.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 3h9l5 5v13H6V3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3>Documentation</h3>
+                    <p>Registry, transfer and paperwork support, so nothing holds up your deal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="areas-section" id="areas">
+        <div class="wrap areas-layout">
+            <div>
+                <div class="section-head reveal">
+                    <p class="kicker">Where I work</p>
+                    <h2>Across the Tricity grid.</h2>
+                    <p>Active listings and site visits across Mohali's sectors
+                        and phases, plus neighbouring Chandigarh and Panchkula.</p>
+                </div>
+
+                <div class="area-chips" id="area-chips">
+                    <span class="area-chip" data-node="0">Phase 9</span>
+                    <span class="area-chip" data-node="1">Phase 10</span>
+                    <span class="area-chip" data-node="2">Sector 68</span>
+                    <span class="area-chip" data-node="3">Sector 70</span>
+                    <span class="area-chip" data-node="4">Mohali</span>
+                    <span class="area-chip" data-node="5">Chandigarh</span>
+                    <span class="area-chip" data-node="6">Panchkula</span>
+                    <span class="area-chip" data-node="7">Kharar</span>
+                </div>
+            </div>
+
+            <div class="areas-map">
+                <svg viewBox="0 0 400 400" id="areas-svg">
+                    <rect width="400" height="400" fill="url(#grid)"/>
+                    <g id="area-nodes">
+                        <circle class="area-node" data-node="0" cx="120" cy="130" r="6"></circle>
+                        <text class="area-node-label" data-node="0" x="132" y="126">Phase 9</text>
+
+                        <circle class="area-node" data-node="1" cx="200" cy="90" r="6"></circle>
+                        <text class="area-node-label" data-node="1" x="212" y="86">Phase 10</text>
+
+                        <circle class="area-node" data-node="2" cx="280" cy="150" r="6"></circle>
+                        <text class="area-node-label" data-node="2" x="292" y="146">Sector 68</text>
+
+                        <circle class="area-node" data-node="3" cx="300" cy="250" r="6"></circle>
+                        <text class="area-node-label" data-node="3" x="312" y="246">Sector 70</text>
+
+                        <circle class="area-node" data-node="4" cx="180" cy="210" r="6"></circle>
+                        <text class="area-node-label" data-node="4" x="192" y="206">Mohali</text>
+
+                        <circle class="area-node" data-node="5" cx="100" cy="290" r="6"></circle>
+                        <text class="area-node-label" data-node="5" x="112" y="286">Chandigarh</text>
+
+                        <circle class="area-node" data-node="6" cx="330" cy="330" r="6"></circle>
+                        <text class="area-node-label" data-node="6" x="270" y="326">Panchkula</text>
+
+                        <circle class="area-node" data-node="7" cx="70" cy="180" r="6"></circle>
+                        <text class="area-node-label" data-node="7" x="18" y="176">Kharar</text>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section id="listings">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <p class="kicker">Featured</p>
+                <h2>Plots &amp; homes, ready to view.</h2>
+                <p>A snapshot of what's currently on offer — the full list changes weekly, so call for the latest.</p>
+            </div>
+
+            <div class="listings-grid">
+                <article class="listing-card feature">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85" alt="Corner plot with modern house">
+                    <div class="listing-overlay"></div>
+                    <span class="listing-tag">Plot</span>
+                    <div class="listing-info">
+                        <h3>Corner Plot, Phase 10</h3>
+                        <p>250 sq yd · Park-facing · Registry clear</p>
+                        <div class="listing-price"><strong>₹85 Lac</strong><a href="tel:+917090044000">Enquire →</a></div>
+                    </div>
+                </article>
+
+                <article class="listing-card">
+                    <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=85" alt="Living room of a flat">
+                    <div class="listing-overlay"></div>
+                    <span class="listing-tag">Flat</span>
+                    <div class="listing-info">
+                        <h3>Homeland Heights, 3BHK</h3>
+                        <p>Sector 70 · 1,450 sq ft</p>
+                        <div class="listing-price"><strong>₹1.10 Cr</strong><a href="tel:+917090044000">Enquire →</a></div>
+                    </div>
+                </article>
+
+                <article class="listing-card">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85" alt="Kitchen interior">
+                    <div class="listing-overlay"></div>
+                    <span class="listing-tag">Flat</span>
+                    <div class="listing-info">
+                        <h3>Falcon View Residency</h3>
+                        <p>Sector 68 · 2BHK</p>
+                        <div class="listing-price"><strong>₹68 Lac</strong><a href="tel:+917090044000">Enquire →</a></div>
+                    </div>
+                </article>
+
+                <article class="listing-card">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=85" alt="Apartment building exterior">
+                    <div class="listing-overlay"></div>
+                    <span class="listing-tag">Flat</span>
+                    <div class="listing-info">
+                        <h3>Ready-to-move, Mohali</h3>
+                        <p>3BHK · Immediate possession</p>
+                        <div class="listing-price"><strong>₹95 Lac</strong><a href="tel:+917090044000">Enquire →</a></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="wrap about-layout">
+            <div class="about-photo reveal">
+                <img src="https://images.unsplash.com/photo-1600607688960-e095ff83135c?auto=format&fit=crop&w=1200&q=85" alt="Modern residential building">
+                <div class="about-badge">
+                    <strong>4.9★</strong>
+                    <span>640 Google<br>reviews</span>
+                </div>
+            </div>
+
+            <div class="reveal reveal-side">
+                <p class="kicker">About NextGen</p>
+                <h2>A consultancy built on straight answers.</h2>
+                <p style="margin-top:16px;color:var(--text-on-paper-muted);font-size:15px;line-height:1.75;max-width:480px;">
+                    NextGen Spaces is a real estate consultancy assisting with
+                    property purchases and rentals across Mohali and the Tricity —
+                    known locally for plots, flats and honest dealing.
+                </p>
+
+                <div class="about-points">
+                    <div class="about-point">
+                        <span class="about-point-num">01</span>
+                        <div><h4>Honest, transparent dealing</h4><p>Clients repeatedly call out the honesty and clear communication.</p></div>
+                    </div>
+                    <div class="about-point">
+                        <span class="about-point-num">02</span>
+                        <div><h4>Available around the clock</h4><p>Open 24 hours, with WhatsApp and phone support for quick questions.</p></div>
+                    </div>
+                    <div class="about-point">
+                        <span class="about-point-num">03</span>
+                        <div><h4>End-to-end documentation</h4><p>Registry, transfer and paperwork handled alongside the sale.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews-section" id="reviews">
+        <div class="wrap">
+            <div class="reviews-top">
+                <div class="section-head reveal" style="margin-bottom:0;">
+                    <p class="kicker">Client reviews</p>
+                    <h2>What clients say.</h2>
+                </div>
+
+                <div class="rating-card">
+                    <strong data-target="4.9" data-decimals="1">0.0</strong>
+                    <div>
+                        <div class="rating-stars">★★★★★</div>
+                        <p><span data-target="640" data-decimals="0">0</span> reviews on Google</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews-grid">
+                <article class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Highly recommended for anyone looking to buy or rent property in Tri-City."</p>
+                    <div class="review-author">
+                        <span class="review-avatar">A</span>
+                        <div><strong>Client review</strong><span>Google</span></div>
+                    </div>
+                </article>
+                <article class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Thank u so much sir... and such a nice behaviour."</p>
+                    <div class="review-author">
+                        <span class="review-avatar">K</span>
+                        <div><strong>Client review</strong><span>Google</span></div>
+                    </div>
+                </article>
+                <article class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Very professional — understood exactly what we were looking for and guided us the whole way."</p>
+                    <div class="review-author">
+                        <span class="review-avatar">R</span>
+                        <div><strong>Client review</strong><span>Google</span></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="wrap contact-layout">
+            <div>
+                <p class="kicker">Get in touch</p>
+                <h2>Let's find your plot.</h2>
+                <p style="margin-top:16px;color:var(--text-on-ink-muted);font-size:15px;max-width:440px;">
+                    Call, WhatsApp, or drop by the office in Phase 9 — open 24 hours, every day.
+                </p>
+
+                <div class="contact-list">
+                    <div class="contact-row"><span>Phone</span><a href="tel:+917090044000">070900 44000</a></div>
+                    <div class="contact-row"><span>WhatsApp</span><a href="https://wa.me/917090044000" target="_blank" rel="noopener">Message now</a></div>
+                    <div class="contact-row"><span>Address</span><strong>Phase 9, Sahibzada Ajit Singh Nagar, Punjab 160062</strong></div>
+                    <div class="contact-row"><span>Hours</span><strong>Open 24 hours</strong></div>
+                    <div class="contact-row"><span>YouTube</span><a href="https://youtube.com" target="_blank" rel="noopener">Watch listings</a></div>
+                </div>
+
+                <div class="contact-actions">
+                    <a href="tel:+917090044000" class="btn btn-gold">Call NextGen</a>
+                    <a href="https://wa.me/917090044000" target="_blank" rel="noopener" class="btn btn-outline-ink">WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="contact-map reveal reveal-side">
+                <iframe src="https://www.google.com/maps?q=Phase%209%2C%20Sahibzada%20Ajit%20Singh%20Nagar%2C%20Punjab%20160062&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="wrap footer-grid">
+        <div class="footer-brand">
+            <strong>NextGen Spaces</strong>
+            <p>Real estate consultant for plots, flats and rentals across Mohali and the Tricity. Open 24 hours.</p>
+        </div>
+
+        <div class="footer-col">
+            <span class="footer-label">EXPLORE</span>
+            <a href="#services">Services</a>
+            <a href="#listings">Listings</a>
+            <a href="#areas">Areas</a>
+            <a href="#about">About</a>
+            <a href="#reviews">Reviews</a>
+        </div>
+
+        <div class="footer-col">
+            <span class="footer-label">CONTACT</span>
+            <a href="tel:+917090044000">070900 44000</a>
+            <a href="https://wa.me/917090044000" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="#contact">Phase 9, Mohali</a>
+        </div>
+
+        <div class="footer-col">
+            <span class="footer-label">MORE</span>
+            <a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://www.google.com/maps" target="_blank" rel="noopener">Google Maps</a>
+        </div>
+    </div>
+
+    <div class="wrap footer-bottom">
+        <span>© 2026 NextGen Spaces</span>
+        <span>Real Estate Consultant · Mohali &amp; Tricity</span>
+    </div>
+</footer>
+
+<script>
+/* =========================
+   MOBILE MENU
+========================= */
+const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.createElement("div");
+mobileMenu.className = "mobile-menu";
+mobileMenu.id = "mobile-menu";
+mobileMenu.innerHTML = `
+    <div class="mobile-menu-top">
+        <span>Menu</span>
+        <button class="mobile-menu-close" aria-label="Close menu">×</button>
+    </div>
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#listings">Listings</a>
+        <a href="#areas">Areas</a>
+        <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="mobile-menu-cta">
+        <a href="tel:+917090044000" class="btn btn-gold">Call 070900 44000</a>
+        <a href="https://wa.me/917090044000" target="_blank" rel="noopener" class="btn btn-outline-ink">WhatsApp</a>
+    </div>
+`;
+document.body.appendChild(mobileMenu);
+
+const closeBtn = mobileMenu.querySelector(".mobile-menu-close");
+const mobileLinks = mobileMenu.querySelectorAll("nav a");
+
+function openMenu(){
+    mobileMenu.classList.add("open");
+    menuToggle.setAttribute("aria-expanded","true");
+    document.body.style.overflow="hidden";
+}
+function closeMenu(){
+    mobileMenu.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded","false");
+    document.body.style.overflow="";
+}
+menuToggle.addEventListener("click", openMenu);
+closeBtn.addEventListener("click", closeMenu);
+mobileLinks.forEach(l => l.addEventListener("click", closeMenu));
+
+/* =========================
+   NAV SCROLL STATE
+========================= */
+const nav = document.getElementById("site-nav");
+function updateNav(){
+    nav.classList.toggle("scrolled", window.scrollY > 30);
+}
+window.addEventListener("scroll", updateNav, {passive:true});
+updateNav();
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+const revealEls = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window){
+    const obs = new IntersectionObserver((entries, o) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting){
+                entry.target.classList.add("in");
+                o.unobserve(entry.target);
+            }
+        });
+    }, {threshold:0.18, rootMargin:"0px 0px -8% 0px"});
+    revealEls.forEach(el => obs.observe(el));
+} else {
+    revealEls.forEach(el => el.classList.add("in"));
+}
+
+/* =========================
+   COUNT-UP
+========================= */
+function animateCount(el){
+    const target = parseFloat(el.dataset.target);
+    const decimals = parseInt(el.dataset.decimals, 10);
+    const suffix = el.dataset.suffix || "";
+    const duration = 1300;
+    const start = performance.now();
+    function tick(now){
+        const p = Math.min((now-start)/duration, 1);
+        const eased = 1 - Math.pow(1-p, 3);
+        el.textContent = (target*eased).toFixed(decimals) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = target.toFixed(decimals) + suffix;
+    }
+    requestAnimationFrame(tick);
+}
+const countTargets = document.querySelectorAll("[data-target]");
+if ("IntersectionObserver" in window){
+    const countObs = new IntersectionObserver((entries,o)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                animateCount(entry.target);
+                o.unobserve(entry.target);
+            }
+        });
+    },{threshold:0.6});
+    countTargets.forEach(el=>countObs.observe(el));
+}
+
+/* =========================
+   HERO MAP PARALLAX
+========================= */
+const heroMapWrap = document.getElementById("hero-map-wrap");
+const gridLayer = document.getElementById("grid-layer");
+const pinLayer = document.getElementById("pin-layer");
+if (heroMapWrap && window.matchMedia("(hover: hover)").matches){
+    heroMapWrap.addEventListener("mousemove", (e)=>{
+        const rect = heroMapWrap.getBoundingClientRect();
+        const x = (e.clientX-rect.left)/rect.width - 0.5;
+        const y = (e.clientY-rect.top)/rect.height - 0.5;
+        gridLayer.style.transform = `translate(${x*-6}px, ${y*-6}px)`;
+        pinLayer.style.transform = `translate(${x*-14}px, ${y*-14}px)`;
+    });
+    heroMapWrap.addEventListener("mouseleave", ()=>{
+        gridLayer.style.transform = "translate(0,0)";
+        pinLayer.style.transform = "translate(0,0)";
+    });
+}
+
+/* =========================
+   AREA CHIP <-> MAP NODE
+========================= */
+const chips = document.querySelectorAll(".area-chip");
+const nodes = document.querySelectorAll(".area-node");
+function setActive(i){
+    chips.forEach(c => c.classList.toggle("active", c.dataset.node === String(i)));
+    nodes.forEach(n => {
+        const active = n.dataset.node === String(i);
+        n.classList.toggle("active", active);
+        n.setAttribute("r", active ? 9 : 6);
+    });
+}
+chips.forEach(chip=>{
+    chip.addEventListener("mouseenter", ()=> setActive(chip.dataset.node));
+    chip.addEventListener("focus", ()=> setActive(chip.dataset.node));
+});
+document.querySelector(".area-chips")?.addEventListener("mouseleave", ()=>{
+    chips.forEach(c=>c.classList.remove("active"));
+    nodes.forEach(n=>{n.classList.remove("active"); n.setAttribute("r",6);});
+});
+</script>
+
+</body>
+</html>
